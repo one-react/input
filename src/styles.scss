@@ -1,0 +1,45 @@
+@import "~or-theme";
+
+.or-btn {
+  display: inline-block;
+  min-width: 120px;
+  padding: $btn-padding-y $btn-padding-x;
+  background-color: $white;
+  color: $gray8;
+  border-width: 1px;
+  border-color: $gray8;
+  border-style: solid;
+  font-size: 14px;
+  border-radius: 1px;
+  text-align: center;
+  box-sizing: border-box;
+  font-family: $font-family;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $gray8;
+    color: $white;
+  }
+}
+
+.or-btn-primary {
+  background-color: $primary-color;
+  color: $white;
+  border-color: $primary-color;
+
+  &:hover {
+    background-color: $primary-color0;
+    border-color: $primary-color0;
+  }
+}
+
+.or-btn-warning {
+  background-color: $warning-color;
+  color: $white;
+  border-color: $warning-color;
+
+  &:hover {
+    background-color: $warning-color0;
+    border-color: $warning-color0;
+  }
+}
