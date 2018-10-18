@@ -1,45 +1,34 @@
 @import "~or-theme";
 
-.or-btn {
+.or-input {
+  position: relative;
   display: inline-block;
-  min-width: 120px;
-  padding: $btn-padding-y $btn-padding-x;
-  background-color: $white;
-  color: $gray8;
-  border-width: 1px;
-  border-color: $gray8;
-  border-style: solid;
-  font-size: 14px;
-  border-radius: 1px;
-  text-align: center;
-  box-sizing: border-box;
-  font-family: $font-family;
-  cursor: pointer;
 
-  &:hover {
-    background-color: $gray8;
-    color: $white;
+  input{
+    outline: none;
+    line-height: 38px;
+    height: 38px;
+    padding: 0 5px;
+    font-size: 14px;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+  .or-clear-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    background-color: #aaa;
+    border-radius: 50%;
+    cursor: pointer;
   }
 }
 
-.or-btn-primary {
-  background-color: $primary-color;
-  color: $white;
-  border-color: $primary-color;
-
-  &:hover {
-    background-color: $primary-color0;
-    border-color: $primary-color0;
-  }
-}
-
-.or-btn-warning {
-  background-color: $warning-color;
-  color: $white;
-  border-color: $warning-color;
-
-  &:hover {
-    background-color: $warning-color0;
-    border-color: $warning-color0;
-  }
-}

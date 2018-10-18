@@ -1,25 +1,37 @@
-import { action } from '@storybook/addon-actions'
-import Sample from 'or-input'
+import { Input } from 'or-input'
 import React, { PureComponent } from 'react'
 
-const handleClick = action('sample-click')
-
 export default class Example extends PureComponent<{}, {}> {
+  state = {
+    name: '',
+    age: ''
+  }
+
   render() {
     return (
       <div>
-        <h1>button type:</h1>
-        <div>
-          <Sample type="primary" onClick={handleClick}>
-            ADD TO CART
-          </Sample>
-          <Sample onClick={handleClick}>SIGN UP</Sample>
-          <Sample type="warning" onClick={handleClick}>
-            DELETE
-          </Sample>
-          <Sample onClick={handleClick}>TOO LOOOOOOOOOOOOOOOOOOG</Sample>
-        </div>
+        <Input
+          placeholder="name"
+          value={this.state.name}
+          maxlength={12}
+          onChange={this.handleChange('name')}
+        />
+        <Input
+          numericInput={true}
+          placeholder="age"
+          value={this.state.age}
+          maxlength={12}
+          onChange={this.handleChange('age')}
+        />
       </div>
     )
+  }
+
+  handleChange = state => {
+    return value => {
+      this.setState({
+        [`${state}`]: value
+      })
+    }
   }
 }
