@@ -44,7 +44,7 @@ export class Input extends PureComponent<Props, {}> {
   render() {
     const {
       classname,
-      placeholder,
+      placeholder = '',
       value,
       maxlength,
       canClear = true
@@ -66,9 +66,9 @@ export class Input extends PureComponent<Props, {}> {
     )
   }
 
-  handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+  handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { onChange, numericInput = false } = this.props
-    const { value } = e.currentTarget
+    const { value } = e.target
     if (numericInput && typeof onChange === 'function') {
       const reg = /^[0-9]+$/
       if (reg.test(value) || value === '') {
