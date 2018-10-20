@@ -3,26 +3,41 @@ import React, { PureComponent } from 'react'
 
 interface Props {
   /**
-   * additional classname for input
+   * additional classname
    */
   classname?: string
 
-  type?: 'text' | 'number'
-
+  /**
+   * whether the input box can only enter numbers
+   * @default false
+   */
   numericInput?: boolean
 
+  /**
+   * placeholder for input box
+   */
   placeholder?: string
 
+  /**
+   * value of the input box
+   */
   value: string
 
+  /**
+   * maxlength of the input box
+   */
   maxlength?: number
 
-  withClearIcon?: boolean
+  /**
+   * whether the value of the input box can be cleared by clicking the clear icon
+   * @default true
+   */
+  canClear?: boolean
 
   /**
    * callback triggered input's onchange event
    **/
-  onChange?: (value) => void
+  onChange: (value) => void
 }
 
 export class Input extends PureComponent<Props, {}> {
@@ -32,7 +47,7 @@ export class Input extends PureComponent<Props, {}> {
       placeholder,
       value,
       maxlength,
-      withClearIcon = true
+      canClear = true
     } = this.props
     const inputClass = clx(classname, 'or-input')
 
@@ -44,7 +59,7 @@ export class Input extends PureComponent<Props, {}> {
           maxLength={maxlength}
           onChange={this.handleChange}
         />
-        {withClearIcon && (
+        {canClear && (
           <div className="or-clear-icon" onClick={this.handleClear} />
         )}
       </div>
