@@ -22,14 +22,14 @@ describe('src/index', () => {
     })
   })
 
-  describe.only('simulate events', async () => {
+  describe('simulate events', () => {
     let wrapper
-    it('onchange event', async () => {
+    it('onchange event', () => {
       wrapper = mount(<RenderInput />)
       const input = wrapper.find('.or-input input')
       input.simulate('change', { target: { value: 'Changed' } })
 
-      expect(input.instance().value).toBe('Changed')
+      expect(wrapper.find('.or-input input').prop('value')).toBe('Changed')
     })
   })
 })
