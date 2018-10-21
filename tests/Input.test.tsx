@@ -1,8 +1,6 @@
 import { mount } from 'enzyme'
 import React from 'react'
 
-import { sleep } from './util'
-
 import Input from '../src'
 
 describe('src/index', () => {
@@ -24,30 +22,14 @@ describe('src/index', () => {
     })
   })
 
-  describe('simulate events', async () => {
+  describe.only('simulate events', async () => {
     let wrapper
     it('onchange event', async () => {
       wrapper = mount(<RenderInput />)
       const input = wrapper.find('.or-input input')
-      input.instance().value = 'yuki'
-      input.simulate('change')
-      // input.simulate('focus');
-      // input.simulate('change', { target: { value: 'Changed' } });
-      // input.simulate('keyDown', {
-      //   which: 72,
-      //   target: {
-      //     blur() {
-      //       // Needed since <EditableText /> calls target.blur()
-      //       input.simulate('blur');
-      //     },
-      //   },
-      // })
-      // await sleep(500)
-      // expect(input.props().value).toBe('Hello');
-      // input.simulate('change', { target: { value: 'yuki' } })
-      // expect(wrapper.find('input').prop('value')).toBe('yuki')
+      input.simulate('change', { target: { value: 'Changed' } })
 
-      expect(input.value).toBe('yuki')
+      expect(input.instance().value).toBe('Changed')
     })
   })
 })
