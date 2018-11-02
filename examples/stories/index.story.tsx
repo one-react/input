@@ -1,21 +1,19 @@
-import { action } from '@storybook/addon-actions'
 import { withInfo } from '@storybook/addon-info'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 
-import Sample from 'or-input'
 import { previewCode } from './util'
 
+import Input from 'or-input'
 import Example from './example'
 
 import './styles.scss'
 
-const handleClick = action('basic-click')
-storiesOf('or-sample', module)
+storiesOf('or-input', module)
   .addDecorator(
     withInfo({
       inline: true,
-      propTables: [Sample],
+      propTables: [Input],
       propTablesExclude: [Example],
       styles: {
         jsxInfoContent: {
@@ -25,8 +23,7 @@ storiesOf('or-sample', module)
       }
     })
   )
-  .add('basic', () => <Sample onClick={handleClick}>Test</Sample>)
-  .add('sample', () => <Example />, {
+  .add('example', () => <Example />, {
     info: {
       source: false,
       text: previewCode(require('!!raw-loader!./example.tsx'))
