@@ -1,12 +1,12 @@
 import { configure } from '@storybook/react'
-import { setOptions } from '@storybook/addon-options'
+import { withOptions } from '@storybook/addon-options'
 
-setOptions({
+withOptions({
   name: 'One React',
   url: 'https://github.com/one-react/input',
   goFullScreen: false,
-  showAddonPanel: false,
-  addonPanelInRight: false,
+  showAddonPanel: true,
+  addonPanelInRight: true,
 })
 
 // automatically import all files ending with *.story.tsx

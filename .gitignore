@@ -61,6 +61,9 @@ typings/
 lib
 es
 
+# storybook examples outputs
+site
+
 package-lock.json
 
 .DS_Store
