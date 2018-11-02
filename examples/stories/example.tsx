@@ -54,7 +54,7 @@ export default class Example extends PureComponent<{}, {}> {
           />
         </div>
         <div className="">
-          <h1>input value can be cleared:</h1>
+          <h1>input value can't be cleared:</h1>
           <Input
             canClear={false}
             numericInput={true}

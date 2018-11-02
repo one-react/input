@@ -65,6 +65,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "or-icons": "^1.2.1",
     "or-theme": "^1.2.0"
   },
   "peerDependencies": {

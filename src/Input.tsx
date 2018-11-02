@@ -1,6 +1,8 @@
 import clx from 'classnames'
 import React, { PureComponent } from 'react'
 
+import { SvgBorderedClose } from 'or-icons'
+
 interface Props {
   /**
    * additional classname
@@ -59,9 +61,14 @@ export class Input extends PureComponent<Props, {}> {
           maxLength={maxlength}
           onChange={this.handleChange}
         />
-        {canClear && (
-          <div className="or-clear-icon" onClick={this.handleClear} />
-        )}
+        {canClear &&
+          this.props.value !== '' && (
+            <SvgBorderedClose
+              className="or-clear-icon"
+              size="18"
+              onClick={this.handleClear}
+            />
+          )}
       </div>
     )
   }
