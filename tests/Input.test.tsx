@@ -29,7 +29,9 @@ describe('src/index', () => {
       const input = wrapper.find('.or-input input')
       input.simulate('change', { target: { value: 'Changed' } })
       expect(wrapper.find('.or-input input').prop('value')).toBe('Changed')
-      expect(wrapper.find('.or-input .or-clear-icon').length).toBe(2)
+      expect(wrapper.find('.or-input .or-clear-icon').hostNodes().length).toBe(
+        1
+      )
     })
   })
 
@@ -38,7 +40,10 @@ describe('src/index', () => {
     it('onchange event', () => {
       wrapper = mount(<RenderInput value="Dan" />)
       expect(wrapper.find('.or-input input').prop('value')).toBe('Dan')
-      expect(wrapper.find('.or-input .or-clear-icon').length).toBe(2)
+      // https://github.com/one-react/input/issues/3
+      expect(wrapper.find('.or-input .or-clear-icon').hostNodes().length).toBe(
+        1
+      )
     })
   })
 })
