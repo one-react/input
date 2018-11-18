@@ -14,6 +14,12 @@ describe('src/index', () => {
       expect(wrapper.find('.or-input .or-clear-icon').length).toBe(0)
     })
 
+    it('should render basicly #className', () => {
+      wrapper = mount(<RenderInput className="hello" />)
+      expect(wrapper.find('.or-input').length).toBe(1)
+      expect(wrapper.find('.or-input').hasClass('hello')).toBe(true)
+    })
+
     it('should render basicly #placeholder', () => {
       wrapper = mount(<RenderInput placeholder="name" />)
       expect(wrapper.find('.or-input').length).toBe(1)
@@ -22,13 +28,26 @@ describe('src/index', () => {
     })
   })
 
-  describe('simulate events', () => {
+  describe('simulate events #default', () => {
     let wrapper
     it('onchange event', () => {
       wrapper = mount(<RenderInput />)
       const input = wrapper.find('.or-input input')
       input.simulate('change', { target: { value: 'Changed' } })
       expect(wrapper.find('.or-input input').prop('value')).toBe('Changed')
+      expect(wrapper.find('.or-input .or-clear-icon').hostNodes().length).toBe(
+        1
+      )
+    })
+  })
+
+  describe('simulate events #numericInput', () => {
+    let wrapper
+    it('onchange event', () => {
+      wrapper = mount(<RenderInput numericInput={true} />)
+      const input = wrapper.find('.or-input input')
+      input.simulate('change', { target: { value: '123' } })
+      expect(wrapper.find('.or-input input').prop('value')).toBe('123')
       expect(wrapper.find('.or-input .or-clear-icon').hostNodes().length).toBe(
         1
       )
@@ -53,6 +72,7 @@ interface Props {
   maxlength?: number
   placeholder?: string
   value?: string
+  className?: string
 }
 
 class RenderInput extends React.Component<Props, {}> {
@@ -64,6 +84,7 @@ class RenderInput extends React.Component<Props, {}> {
     return (
       <div>
         <Input
+          className={this.props.className}
           value={this.state.name}
           onChange={this.handleChange}
           {...this.props}
