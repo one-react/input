@@ -1,9 +1,12 @@
 @import "~or-theme";
 
+$or-input-border-color: $or-gray2 !default;
+$or-input-close-icon-fill: $or-gray2 !default;
+
 .or-input {
   position: relative;
   display: inline-block;
-  border: 1px solid $gray2;
+  border: 1px solid $or-input-border-color;
 
   input{
     width: 100%;
@@ -31,8 +34,8 @@
     width: 18px;
     height: 18px;
     cursor: pointer;
-    fill: $gray2;
-    color: $gray2;
+    fill: $or-input-close-icon-fill;
+    color: $or-input-close-icon-fill;
   }
 }
 

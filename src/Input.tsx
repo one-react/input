@@ -5,9 +5,9 @@ import { SvgBorderedClose } from 'or-icons'
 
 interface Props {
   /**
-   * additional classname
+   * additional className
    */
-  classname?: string
+  className?: string
 
   /**
    * whether the input box can only enter numbers
@@ -45,13 +45,13 @@ interface Props {
 export class Input extends PureComponent<Props, {}> {
   render() {
     const {
-      classname,
+      className,
       placeholder = '',
       value,
       maxlength,
       canClear = true
     } = this.props
-    const inputClass = clx(classname, 'or-input')
+    const inputClass = clx(className, 'or-input')
 
     return (
       <div className={inputClass}>
@@ -88,6 +88,7 @@ export class Input extends PureComponent<Props, {}> {
 
   handleClear = () => {
     const { onChange } = this.props
+    /* istanbul ignore next */
     if (typeof onChange === 'function') {
       onChange('')
     }
