@@ -1,6 +1,6 @@
 # One React Component: input
 
-<p align="center"><img width="150" src="https://cdn.rawgit.com/one-react/assets/master/logo%402x.png" alt="logo"></p>
+<p align="center"><img width="150" src="https://cdn.jsdelivr.net/gh/one-react/assets/logo%402x.png" alt="logo"></p>
 
 [![TravisCI Build](https://img.shields.io/travis/one-react/input.svg)](https://travis-ci.org/one-react/input)
 [![CircieCI Build](https://img.shields.io/circleci/project/github/one-react/input.svg)](https://circleci.com/gh/one-react/input)
