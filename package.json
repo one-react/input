@@ -71,7 +71,7 @@
     "or-icons": "^1.2.1"
   },
   "peerDependencies": {
-    "react": ">=15.5"
+    "react": ">=16.10.2"
   },
   "husky": {
     "hooks": {
